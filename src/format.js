@@ -5,7 +5,7 @@
  * @returns {string} formatted price
  */
 export function formatPrice(amount) {
-  const sign = amount <= 0 ? "-" : "";
+  const sign = amount < 0 ? "-" : "";
   const abs = Math.abs(amount);
   const cents = Math.round(abs * 100);
   const euros = Math.floor(cents / 100);
