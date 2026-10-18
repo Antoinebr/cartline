@@ -8,5 +8,5 @@ import { subtotal } from "./cart.js";
  */
 export function shippingCost(cart) {
   const total = subtotal(cart);
-  return total > 50 ? 0 : 4.9;
+  return total >= 50 ? 0 : 4.9;
 }
