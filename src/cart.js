@@ -40,7 +40,7 @@ export function discountedTotal(cart, percent) {
  * @returns {number} item count
  */
 export function countItems(cart) {
-  return cart.length;
+  return cart.reduce((sum, item) => sum + item.qty, 0);
 }
 
 /**
