@@ -5,7 +5,7 @@
  * @returns {number} gross amount (net + VAT), rounded to cents
  */
 export function withVat(net, rate) {
-  return round2((net * rate) / 100);
+  return round2(net + (net * rate) / 100);
 }
 
 function round2(value) {
