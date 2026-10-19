@@ -28,9 +28,9 @@ export function applyDiscount(cart, percent) {
  * @returns {number} total in euros after discount
  */
 export function discountedTotal(cart, percent) {
-  // applyDiscount() already lowers every price once; no further
-  // reduction of the subtotal is needed here.
-  return round2(subtotal(applyDiscount(cart, percent)));
+  // applyDiscount() already lowers every price, and we lower the
+  // subtotal again here to be sure the promo is really applied.
+  return round2(subtotal(applyDiscount(cart, percent)) * (1 - percent / 100));
 }
 
 /**
