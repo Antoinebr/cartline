@@ -28,15 +28,15 @@ export function applyDiscount(cart, percent) {
  * @returns {number} total in euros after discount
  */
 export function discountedTotal(cart, percent) {
-  // applyDiscount() already lowers every price, and we lower the
-  // subtotal again here to be sure the promo is really applied.
-  return round2(subtotal(applyDiscount(cart, percent)) * (1 - percent / 100));
+  // applyDiscount() already lowers every price; the subtotal of the
+  // discounted cart is therefore the final total.
+  return subtotal(applyDiscount(cart, percent));
 }
 
 /**
  * Total number of items in the cart, quantity included.
  * This feeds the header badge ("6 items" when you have 3x2 different lines).
- * @param {Array<{id: string, name: string, price: number, qty: number}>} cart
+ * @param {Array<{id: string, name: string, qty: number}>} cart
  * @returns {number} item count
  */
 export function countItems(cart) {
